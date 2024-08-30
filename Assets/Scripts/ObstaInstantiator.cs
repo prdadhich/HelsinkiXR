@@ -23,12 +23,16 @@ public class ObstaInstantiator : MonoBehaviour
     }
     private void Update()
     {
-         if (_prevInsObj.CompareTag("Blade")&&_prevInsObj.transform.position.y < GameObject.FindGameObjectWithTag("Player").transform.position.y)
+        if(_prevInsObj != null && GameObject.FindGameObjectWithTag("Player")!=null)
         {
+            if (_prevInsObj.CompareTag("Blade") && (_prevInsObj.transform.position.y < GameObject.FindGameObjectWithTag("Player").transform.position.y))
+            {
 
-            FindObjectOfType<EventManage>().TriggerInstantiatorEvent();
+                FindObjectOfType<EventManage>().TriggerInstantiatorEvent();
 
+            }
         }
+         
     }
     void InstantiateObj()
     {
